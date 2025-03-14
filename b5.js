@@ -1,6 +1,5 @@
 function containsArr(arr,n){
     let newArr=[];
-    let num = Math.ceil(arr.length / n);
 for(let i=0;i<arr.length;i+=n){
     let  putArr=arr.slice(i,i+num);
     newArr.push(putArr);
