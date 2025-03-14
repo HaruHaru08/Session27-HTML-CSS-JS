@@ -19,10 +19,10 @@ while (choice !== 5) {
           console.log(average(arr));
         break;
       case 3:
-          console.log(even);
+          even(arr);
         break;
       case 4:
-          console.log(odd);
+          odd(arr);
         break;
       case 5:
         console.log("Cảm ơn đã sử dụng");
@@ -57,38 +57,52 @@ function average(arr){
     return sum/arr.length;
 }
 function even(arr){
-    let check=0;
-    let max=arr[0];
-    for(let i in arr){
-        if(arr[i]%2===0&&arr[i]>max){
-            max=arr[i];
-            check++;
-        }else if(arr[i]<max&&max%2!==0){
-            max=arr[i];
-            check++;
+    if (arr.length === 0) {
+        console.log("Mảng không có phần tử");
+    } else {
+        let result = [];
+        let check = false;
+        for (let i in arr) {
+            if (arr[i] % 2 == 0) {
+                result.push(arr[i]);
+                check = true;
+            }
         }
-    }
-    if(check>0){
-        console.log(max);
-    }else{
-        console.log("Danh sách không có số chẵn");
+        if (check === false) {
+            console.log("Danh sách không có số chẵn");
+        } else {
+            let max = result[0];
+            for (let i in arr) {
+                if (result[i] > max) {
+                    max = result[i];
+                }
+            }
+            console.log(max);
+        }
     }
 }
 function odd(arr){
-    let check=0;
-    let max=arr[0];
-    for(let i in arr){
-        if(arr[i]%2!==0&&arr[i]>max){
-            max=arr[i];
-            check++;
-        }else if(arr[i]<max&&max%2===0){
-            max=arr[i];
-            check++;
+    if (arr.length === 0) {
+        console.log("Mảng không có phần tử");
+    } else {
+        let result = [];
+        let check = false;
+        for (let i in arr) {
+            if (arr[i] % 2 !== 0) {
+                result.push(arr[i]);
+                check = true;
+            }
         }
-    }
-    if(check>0){
-        console.log(max);
-    }else{
-        console.log("Danh sách không có số lẻ");
+        if (check===false) {
+            console.log("Danh sách không có số lẻ");
+        } else {
+            let min = result[0];
+            for (let i in result) {
+                if (result[i] < min) {
+                    min = result[i];
+                }
+            }
+            console.log(min);
+        }
     }
 }
